@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  rasa-faq:
+    container_name: rasa-intent
+    image: rasa-intent:latest
+    build: ./Dockerfiles/intent
+    ports:
+      - "5005:5005"
+    networks:
+      - code-network
+    restart: always
+networks:
+  code-network:
+    driver: bridge
